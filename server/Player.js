@@ -1,7 +1,7 @@
 /**
  * Stores the state of the player on the server. This class will also store
  * other important information such as socket ID, packet number, and latency.
- * @author alvin@omgimanerd.tech (Alvin Lin)
+ * @author Kabir Ivan
  */
 
 const Bullet = require('./Bullet')
@@ -33,7 +33,7 @@ class Player extends Entity {
     this.socketID = socketID
 
     this.lastUpdateTime = 0
-    this.tankAngle = 0
+    this.kingAngle = 0
     this.turretAngle = 0
     this.turnRate = 0
     this.speed = Constants.PLAYER_DEFAULT_SPEED
@@ -89,10 +89,10 @@ class Player extends Entity {
       spd = this.speed
     }
     if (data.up) {
-      //this.velocity = Vector.fromPolar(this.speed, this.tankAngle)
+      //this.velocity = Vector.fromPolar(this.speed, this.kingAngle)
       this.velocity = Vector.fromPolar(spd, 270 / 180 * Math.PI);
     } else if (data.down) {
-      //this.velocity = Vector.fromPolar(-this.speed, this.tankAngle)
+      //this.velocity = Vector.fromPolar(-this.speed, this.kingAngle)
       this.velocity = Vector.fromPolar(spd, 90 / 180 * Math.PI);
     } else if (!(data.up ^ data.down)) {
       this.velocity = Vector.zero()
@@ -120,8 +120,8 @@ class Player extends Entity {
     this.lastUpdateTime = lastUpdateTime
     this.position.add(Vector.scale(this.velocity, deltaTime))
     this.boundToWorld()
-    this.tankAngle = Util.normalizeAngle(
-      this.tankAngle + this.turnRate * deltaTime)
+    this.kingAngle = Util.normalizeAngle(
+      this.kingAngle + this.turnRate * deltaTime)
     this.king = 0
     if(this.collided(this.castle)){
       this.army += deltaTime * Constants.CASTLE_RECRUITS
