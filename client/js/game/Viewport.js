@@ -1,6 +1,6 @@
 /**
  * Manages the player viewport when they move around.
- * @author alvin@omgimanerd.tech (Alvin Lin)
+ * @author Kabir Ivan
  */
 
 const Constants = require('../../../lib/Constants')
