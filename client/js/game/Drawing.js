@@ -72,13 +72,13 @@ class Drawing {
   }
 
   /**
-   * Draws a player to the canvas as a tank.
-   * @param {boolean} isSelf If this is true, then a green tank will be draw
-   *   to denote the player's tank. Otherwise a red tank will be drawn to
-   *   denote an enemy tank.
+   * Draws a player to the canvas as a king.
+   * @param {boolean} isSelf If this is true, then a green king will be draw
+   *   to denote the player's king. Otherwise a red king will be drawn to
+   *   denote an enemy king.
    * @param {Player} player The player object to draw.
    */
-  drawTank(isSelf, player) {
+  drawKing(isSelf, player) {
     this.context.save()
     var canvasCoords = this.viewport.toCanvas(player.position)
     this.context.translate(canvasCoords.x, canvasCoords.y)
@@ -97,12 +97,12 @@ class Drawing {
       this.context.fillRect(-25 + 5 * i, -40, 5, 4)
     }
 
-    //this.context.rotate(Drawing.translateAngle(player.tankAngle))
+    //this.context.rotate(Drawing.translateAngle(player.kingAngle))
     this.drawCenteredImage(this.images[
       // eslint-disable-next-line multiline-ternary
       [Constants.DRAWING_IMG_SELF_KING, Constants.DRAWING_IMG_OTHER_KING][(!isSelf) * 1]
     ])
-    //this.context.rotate(-Drawing.translateAngle(player.tankAngle))
+    //this.context.rotate(-Drawing.translateAngle(player.kingAngle))
 
     /*this.context.rotate(Drawing.translateAngle(player.turretAngle))
     this.drawCenteredImage(this.images[
@@ -128,7 +128,7 @@ class Drawing {
   }
 
   /**
-   * Draws a bullet (tank shell) to the canvas.
+   * Draws a bullet (king shell) to the canvas.
    * @param {Bullet} bullet The bullet to draw to the canvas
    */
   drawBullet(bullet) {
