@@ -166,11 +166,11 @@ class Game {
 
       this.powerups.forEach(this.drawing.drawPowerup.bind(this.drawing))
 
-      this.players.forEach(tank => this.drawing.drawTank(false, tank))
+      this.players.forEach(king => this.drawing.drawKing(false, king))
       
-      this.drawing.drawTank(true, this.self)
+      this.drawing.drawKing(true, this.self)
       
-      this.drawing.drawTime(Math.ceil(this.timeLeft / 1000), this.self.position)
+      this.drawing.drawKing(Math.ceil(this.timeLeft / 1000), this.self.position)
     }
   }
 }
