@@ -1,6 +1,6 @@
 /**
  * Methods for drawing all the sprites onto the HTML5 canvas.
- * @author kennethli.3470@gmail.com (Kenneth Li)
+ * @author Kabir Ivan
  */
 
 const Constants = require('../../../lib/Constants')
